@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <script type="text/javascipt"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // function validate() {
+        //     if (document.myForm.name.value == "") {
+        //         alert('Please provide your name!');
+        //         document.myForm.name.focus();
+        //         return false;
+        //     }
+        //     if (document.myForm.email.value == "") {
+
+        //         alert("Please Enter Your Proper Email!");
+        //         document.myForm.name.focus();
+        //         return false;
+        //     }
+        //     if (document.myForm.email.value == "") {
+
+        //         alert("Please Enter Your Proper Email!");
+        //         document.myForm.name.focus();
+        //         return false;
+        //     }
+        //     if (document.myForm.zip.value == "") {
+
+        //         alert("Please Enter Zip code in Proper format!");
+        //         document.myForm.name.focus();
+        //         return false;
+        //     }
+        //     if(document.myForm.country.value=="-1"){
+        //         alert('Please Select Country!');
+        //         return false;
+        //     }
+        //     return true;
+        // }
+
+        // function validateEmail(){
+        //     var email=document.myForm.email.value;
+        //     atpos=email.indexof('@');
+        //     dotpos=email.indexof('.');
+        //     if(atpos<1 || (dotpos-atpos)<2){
+        //         alert('Please Enter correct Email');
+        //         documen.myForm.email.focus();
+        //     }
+
+        // }
+
+        function validateForm(event) {
+            event.preventDefault();
+            let name = document.getElementById('name').value;
+            console.log(name);
+            let flag = true;
+
+            if ((name.length < 3 || name.length > 25) || name == "") {
+                alert('Enter username properly');
+                document.getElementById('nameError').style.display = 'block';
+                document.getElementById('name').style.border = '1px solid red'
+                document.getElementById('nameError').innerText = "Username must be between 3 and 25 characters";
+                document.myForm.name.focus();
+                flag = false;
+            }
+            pass = document.getElementById('pass').value
+            passError = document.getElementById('passError');
+            passPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/;
+            if (!passPattern.test(pass)) {
+                passError.style.display = 'block';
+                // pass.style.border="1px solid red"
+                passError.innerText = 'Password must has at least 8 charcaters that include at least 1 uppercase character,1 lowercase character,1 number and 1 special character.'
+                document.myForm.pass.focus();
+                flag = false;
+            }
+            repass = document.getElementById('re-pass').value;
+            repassError = document.getElementById('re-passError');
+            if (!(repass == pass)) {
+                // repass.style.border="1px solid red";
+                repassError.style.display = 'block';
+                repassError.innerText = 'Passsoord dosent match with above password';
+                document.myForm.repass.focus();
+                flag = false;
+            }
+
+            email = document.getElementById('email').value;
+            emailError = document.getElementById('emailError');
+            if (email == "") {
+                email.style.border = "1px solid red"
+                emailError.innerText = 'Please provide your email!';
+                emailError.style.display = "block";
+                flag = false;
+            }
+            atpos = email.indexOf("@");
+            dotpos = email.indexOf('.');
+            if (atpos < 1 || (dotpos - atpos) < 2) {
+                email.style.border = "1px solid red"
+                emailError.innerText = 'Please Enter correct Email ID';
+                email.focus();
+                emailError.style.display = "block";
+                flag = false;;
+            }
+            return flag;
+        }
+    </script>
+
+</head>
+
+<body>
+    <h1>Form Validation</h1>
+    <!-- <form action="/cgi-bin/test.cgi" name="myForm" onsubmit="return(validate());">
+
+        <table border="1" cellspacing="2" cellpadding="2">
+            <tr>
+                <td>Name</td>
+                <td><input type="text" id="name" name="name" style="border-radius: 2px;"></td>
+            </tr>
+            <br>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" id="email" style="border-radius: 2px;"></td>
+            </tr>
+            <tr>
+                <td>Zip Code</td>
+                <td><input type="text" id="zip" style="border-radius: 2px;"></td>
+            </tr>
+            <tr>
+                <td>Country</td>
+                <td>
+                    <select name="country" style="border-radius: 5px;">
+                        <option value="-1">[Choose yours]</option>
+                        <option value="1">USA</option>
+                        <option value="2">India</option>
+                        <option value="3">UK</option>
+
+                    </select>
+
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit" value="Submit" style="width: 45%; height: 1.5rem;">Submit</button>
+
+                </td>
+            </tr>
+        </table>
+    </form> -->
+    <div class="container">
+        <div class="container2">
+            <form name="myForm" action="/cgi-bin/test.cgi" onsubmit="return validateForm(event);"
+                style="display: flex; justify-content: center; align-items: center;flex-direction: column;">
+                <h2>SignUp</h2>
+                <label for="name">Username</label><br>
+                <input type="text" id="name" name="name" placeholder="Username"><br>
+                <span id="nameError" style="display: none; color: red;"></span>
+                <label for="email">Email</label><br>
+                <span id="emailError" style="display: none; color: red;" ></span>
+                <input type="text" id="email" name="email" value="" placeholder="Email"><br>
+                <label for="pass">Password</label><br>
+                <input type="password" id="pass" name="pass" value="" placeholder="Password"><br>
+                <span id="passError" style="display: none; color: red;"></span>
+                <label for="re-pass">Confirm Password</label><br>
+                <input type="password" id="re-pass" name="re-pass" placeholder="Reenter your password"><br>
+                <span id="re-passError" style="display: none; color: red;"></span>
+                <button type="submit" value="submit" id="submit" style="width:12rem; height: 2rem;">Signup</button>
+            </form>
+        </div>
+    </div>
+</body>
+</body>
+
+</html>

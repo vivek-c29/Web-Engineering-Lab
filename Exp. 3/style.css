@@ -1,0 +1,51 @@
+h1{
+    text-align: center;
+    margin-top: 2rem;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid gray;
+    width: 28rem;
+    height: 35rem;
+    background-color:whitesmoke;
+    border-radius: 4px;
+    opacity: 0.9;
+}
+
+input{
+    width: 15rem;
+    border: 2px solid gray;
+    border-radius: 4px;
+    height: 1.2rem;
+}
+form{
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+span{
+    text-align: center;
+}
+button{
+    background-color: rgba(14, 67, 241, 0.863);
+    color: aliceblue;
+    font-size: 1.1rem;
+    margin-top: 0.8rem;
+
+}
+.container2{
+    background-color: white;
+    width: 25rem;
+    height: 32rem;
+    border: 1px solid rgba(245, 245, 245, 0.833);
+}
