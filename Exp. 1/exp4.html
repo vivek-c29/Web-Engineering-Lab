@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header,
+        footer {
+            color: white;
+            text-align: center;
+            display: flex;
+        }
+
+        nav {
+            color: black;
+            display: flex;
+            justify-content: space-around;
+            gap: 15px;
+            align-items: center;
+            width: 100%;
+        }
+
+        main {
+            display: flex;
+            padding: 10px;
+        }
+
+        section {
+            padding: 10px;
+            margin: 10px;
+            flex: 2;
+        }
+
+        article {
+            padding: 10px;
+            margin: 10px;
+            flex: 1;
+        }
+
+        aside {
+            padding: 10px;
+            margin: 5px;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-around;
+            padding: 15px 0;
+        }
+
+        footer nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        .logo {
+            padding: 10px;
+            display: inline-block;
+            color: black;
+        }
+
+        #star {
+            padding: 10px;
+            display: inline-block;
+            min-width: 5vw;
+        }
+
+        .plain {
+            padding: 10px;
+            display: inline-block;
+            min-width: 5vw;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">LOGO</div>
+        <nav>
+            <div>PRODUCTS</div>
+            <div>SHOPS</div>
+            <div>BLOG</div>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>ALL ABOUT OUR PRODUCTS</h2>
+            <p>Summary</p>
+            <section>
+                <h3>USE 1 FOR OUR PRODUCTS</h3>
+                <p>Description</p>
+            </section>
+            <section>
+                <h3>USE 2 FOR OUR PRODUCTS</h3>
+                <p>Description</p>
+            </section>
+            <section>
+                <h3>USE 3 FOR OUR PRODUCTS</h3>
+                <p>Description</p>
+            </section>
+        </section>
+
+        <article>
+            <aside>
+                <h3>SUPER CLIENT REVIEWS</h3>
+                <p>Client recommendations about the product</p>
+            </aside>
+
+            <aside>
+                <h3>WHAT THE PRESS SAY</h3>
+                <p>Summary of independent journalist evaluation of the product (LINK)</p>
+            </aside>
+        </article>
+        <aside>
+            <h3>ABOUT OUR INDUSTRY</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </aside>
+
+    </main>
+
+    <footer>
+        <nav>
+            <div>JOBS</div>
+            <div>CONTACT</div>
+            <div>LEGAL</div>
+        </nav>
+        <nav>
+            <div>FOLLOW US</div>
+            <div>C&copy;PYRIGHT</div>
+        </nav>
+    </footer>
+</body>
+
+</html>
